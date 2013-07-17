@@ -27,7 +27,10 @@
 
 static void irda_send_ircode(char *buffer, int length)
 {
-
+    char buf[length + 1];
+    memcpy(buf, buffer, length);
+    buf[length] = 0;
+    ALOGI("Received IR buffer %s\n", buf);
 }
 
 static int open_irda(const struct hw_module_t *module, const char *name,
